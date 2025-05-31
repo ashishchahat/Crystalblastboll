@@ -1,26 +1,25 @@
-
-const CACHE_NAME = 'crystal-blast-v3';
+const CACHE_NAME = 'crystal-blast-v4';
 const urlsToCache = [
-  "./animewow.mp3",
-  "./aww.mp3",
-  "./blast_1.mp3",
-  "./bonncrack.mp3",
-  "./break_boll.mp3",
-  "./cashregister.mp3",
-  "./ding.mp3",
-  "./freez.mp3",
-  "./game_over.mp3",
-  "./gear.mp3",
-  "./ghost.png",
-  "./ghost_1.png",
-  "./icon.png",
-  "./index.html",
-  "./kidsaye.mp3",
-  "./manifest.json",
-  "./powerup.mp3",
-  "./splash-screen.png",
-  "./sw.js",
-  "./whoos.mp3"
+  './index.html',
+  './manifest.json',
+  './sw.js',
+  './icon.png',
+  './splash-screen.png',
+  './ghost.png',
+  './ghost_1.png',
+  './break_boll.mp3',
+  './blast_1.mp3',
+  './freez.mp3',
+  './powerup.mp3',
+  './ding.mp3',
+  './game_over.mp3',
+  './cashregister.mp3',
+  './aww.mp3',
+  './animewow.mp3',
+  './bonncrack.mp3',
+  './kidsaye.mp3',
+  './gear.mp3',
+  './game.js'
 ];
 
 self.addEventListener('install', event => {
@@ -35,6 +34,10 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
+    fetch(event.request).catch(() =>
+      caches.match(event.request).then(response => {
+        return response || caches.match('./index.html');
+      })
+    )
   );
 });
