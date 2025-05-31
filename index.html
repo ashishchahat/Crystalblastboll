@@ -626,3 +626,14 @@
             drawGhost() {
                 const img = this.type === 'ghost' ? ghostImg : ghost1Img;
                 if (img.complete && img.naturalWid
+// Start the game
+        init();
+    </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(() => console.log('✅ Service Worker Registered'))
+    .catch(err => console.error('❌ SW Registration Failed:', err));
+}
+</script></body>
+</html>
