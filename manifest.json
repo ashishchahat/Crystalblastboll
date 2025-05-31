@@ -1,1 +1,16 @@
-
+{
+  "name": "Crystal Blast",
+  "short_name": "CBlast",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "A crystal-blasting arcade game.",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
